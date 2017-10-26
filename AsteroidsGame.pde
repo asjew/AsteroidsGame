@@ -3,21 +3,30 @@ Spaceship dragon = new Spaceship();
 public void setup() 
 {
   size(500, 500);
-  background(0);
+
 }
 public void draw() 
 {
+	background(0);
   dragon.show();
+  dragon.move();
 }
 public void keyPressed()
 {
-	if (key == SHIFT) //accelerate
+	if (key == CODED)
 	{
-		double dRadians = myPointDirection*(Math.PI/180);
-		myDirectionX += ((10)*Math.cos(dRadians));
-		myDirectionY += ((10)*Math.sin(dRadians));
-	else if (keyCode == LEFT)
-		
+		if(keyCode == LEFT)	
+		{
+			dragon.turn(-10);
+		}
+		else if(keyCode == RIGHT)
+		{
+			dragon.turn(10);
+		}
+		else if(keyCode == SHIFT)
+		{
+			dragon.accelerate(5);
+		}
 	}
 }
 
