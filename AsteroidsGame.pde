@@ -27,6 +27,14 @@ public void keyPressed()
 		{
 			dragon.accelerate(5);
 		}
+		else if(keyCode == UP)
+		{
+			dragon.setPointDirection((int)(Math.random()*361));
+			dragon.setDirectionX(Math.random()*0);
+			dragon.setDirectionY(Math.random()*0);
+			dragon.setX((int)(Math.random()*501));
+			dragon.setY((int)(Math.random()*501));
+		}
 	}
 }
 
