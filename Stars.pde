@@ -1,8 +1,8 @@
 class Stars //note that this class does NOT extend Floater
 {
-  int myColor;
-  double myX, myY;
-  public void Stars()
+  private int myColor;
+  private double myX, myY;
+  public Stars()
   {
   	myX = Math.random()*501;
   	myY = Math.random()*501;
@@ -11,7 +11,8 @@ class Stars //note that this class does NOT extend Floater
   public void show()
   {
   	noStroke();
-  	fill(mycolor);
+  	fill(myColor);
+    ellipse((float)myX, (float)myY, 2, 2);
 
   }
 }
