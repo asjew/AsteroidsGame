@@ -20,8 +20,6 @@ public void setup()
 public void draw() 
 {
 	background(0);
-  	dragon.show();
-  	dragon.move();
   	for (int i = 0; i < twinkle.length; i++)
   	{
   		twinkle[i].show();
@@ -31,6 +29,8 @@ public void draw()
   		obstacle[i].show();
   		obstacle[i].move();
   	}
+  	dragon.show();
+  	dragon.move();
 }
 public void keyPressed()
 {
