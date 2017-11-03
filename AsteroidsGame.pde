@@ -1,5 +1,6 @@
 Spaceship dragon = new Spaceship();
 Stars[] twinkle;
+Asteroid[] obstacle;
 
 public void setup() 
 {
@@ -8,6 +9,11 @@ public void setup()
   for(int i = 0; i < twinkle.length; i++)
   {
   	twinkle[i] = new Stars();
+  }
+  obstacle = new Asteroid[15];
+  for(int i = 0; i < obstacle.length; i++)
+  {
+  	obstacle[i] = new Asteroid();
   }
 
 }
@@ -19,6 +25,11 @@ public void draw()
   	for (int i = 0; i < twinkle.length; i++)
   	{
   		twinkle[i].show();
+  	}
+  	for (int i = 0; i < obstacle.length; i++)
+  	{
+  		obstacle[i].show();
+  		obstacle[i].move();
   	}
 }
 public void keyPressed()
