@@ -1,7 +1,6 @@
 Spaceship dragon = new Spaceship();
 Stars[] twinkle;
 ArrayList <Asteroid> obstacle;
-float distance;
 
 public void setup() 
 {
@@ -12,7 +11,7 @@ public void setup()
   	twinkle[i] = new Stars();
   }
   obstacle = new ArrayList <Asteroid>();
-  for(int i = 0; i < 15; i++)
+  for(int i = 0; i < 20; i++)
   {
   	obstacle.add(new Asteroid());
   }
@@ -30,11 +29,13 @@ public void draw()
   	for (int i = 0; i < obstacle.size(); i++)
   	{
   		obstacle.get(i).show();
-  		obstacle.get(i).move();
-  		distance = dist(dragon.getX(), dragon.getY(), obstacle.get(i).getX(), obstacle.get(i).getY());
-  		if (distance >= 10)
+  		if (dist(dragon.getX(), dragon.getY(), obstacle.get(i).getX(), obstacle.get(i).getY()) <= 10)
   		{
   			obstacle.remove(i);
+  		}
+  		else
+  		{
+  			obstacle.get(i).move();
   		}
   	}
 }
