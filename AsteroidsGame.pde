@@ -1,6 +1,7 @@
 Spaceship dragon = new Spaceship();
 Stars[] twinkle;
 ArrayList <Asteroid> obstacle;
+Bullet pew = new Bullet(dragon);
 
 public void setup() 
 {
@@ -38,6 +39,8 @@ public void draw()
   			obstacle.get(i).move();
   		}
   	}
+  	pew.show();
+  	pew.move();
 }
 public void keyPressed()
 {
@@ -51,11 +54,11 @@ public void keyPressed()
 		{
 			dragon.turn(10);
 		}
-		else if(keyCode == SHIFT)
+		else if(keyCode == UP)
 		{
 			dragon.accelerate(5);
 		}
-		else if(keyCode == UP)
+		else if(keyCode == SHIFT)
 		{
 			dragon.setPointDirection((int)(Math.random()*361));
 			dragon.setDirectionX(Math.random()*0);

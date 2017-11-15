@@ -1,4 +1,4 @@
-class Stars //note that this class does NOT extend Floater
+public class Stars //note that this class does NOT extend Floater
 {
   private int myColor;
   private double myX, myY;
@@ -13,6 +13,6 @@ class Stars //note that this class does NOT extend Floater
   	noStroke();
   	fill(myColor);
     ellipse((float)myX, (float)myY, 2, 2);
-
   }
+}
 }
