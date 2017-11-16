@@ -1,6 +1,6 @@
 public class Bullet extends Floater
 {
-	public Bullet(SpaceShip theShip)
+	public Bullet(Spaceship theShip)
 	{
 		myCenterX = dragon.getX();
 		myCenterY = dragon.getY();
@@ -26,13 +26,13 @@ public class Bullet extends Floater
   		fill(#89FF1C);
 		ellipse((int)myCenterX, (int) myCenterY, 4, 8);
 	}
-	public void move()
-	{
-		if (key == CODED)
-	{
-		if(keyCode == TAB)	
-		{
-			pew.accelerate(2);
-		}
-	}
+// 	public void move()
+// 	{
+// 		if (key == CODED)
+// 	{
+// 		if(keyCode == TAB)	
+// 		{
+// 			super.move();
+// 		}
+// 	}
 }

@@ -40,7 +40,7 @@ public void draw()
   		}
   	}
   	pew.show();
-  	pew.move();
+  	// pew.move();
 }
 public void keyPressed()
 {

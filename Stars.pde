@@ -15,4 +15,3 @@ public class Stars //note that this class does NOT extend Floater
     ellipse((float)myX, (float)myY, 2, 2);
   }
 }
-}
