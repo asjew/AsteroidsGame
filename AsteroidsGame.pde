@@ -1,7 +1,7 @@
 Spaceship dragon = new Spaceship();
 Stars[] twinkle;
 ArrayList <Asteroid> obstacle;
-Bullet pew = new Bullet(dragon);
+ArrayList <Bullet> pew;
 
 public void setup() 
 {
@@ -16,7 +16,7 @@ public void setup()
   {
   	obstacle.add(new Asteroid());
   }
-
+  pew = new ArrayList <Bullet>();
 }
 public void draw() 
 {
@@ -38,9 +38,20 @@ public void draw()
   		{
   			obstacle.get(i).move();
   		}
+      for (int nI = 0; nI < pew.size(); nI++)
+      {
+        if(dist(pew.get(nI).getX(), pew.get(nI).getY(), obstacle.get(i).getX(), obstacle.get(i).getY()) <= 20)
+        {
+          pew.remove(nI);
+          obstacle.remove(i);
+          break;
+        }
+      pew.get(nI).show();
+      pew.get(nI).move();
+      }
+
   	}
-  	pew.show();
-  	// pew.move();
+    
 }
 public void keyPressed()
 {
@@ -66,6 +77,10 @@ public void keyPressed()
 			dragon.setX((int)(Math.random()*501));
 			dragon.setY((int)(Math.random()*501));
 		}
+    else if(keyCode == CONTROL)
+    {
+      pew.add(new Bullet(dragon));
+    }
 	}
 }
 
