@@ -46,11 +46,14 @@ public void draw()
           obstacle.remove(i);
           break;
         }
-      pew.get(nI).show();
-      pew.get(nI).move();
+        else if()
       }
-
   	}
+    for (int nI = 0; nI < pew.size(); nI++)
+      {
+        pew.get(nI).show();
+        pew.get(nI).move();
+      }
     
 }
 public void keyPressed()
