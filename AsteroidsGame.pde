@@ -12,7 +12,7 @@ public void setup()
   	twinkle[i] = new Stars();
   }
   obstacle = new ArrayList <Asteroid>();
-  for(int i = 0; i < 20; i++)
+  for(int i = 0; i < 30; i++)
   {
   	obstacle.add(new Asteroid());
   }
@@ -46,15 +46,23 @@ public void draw()
           obstacle.remove(i);
           break;
         }
-        else if()
       }
   	}
     for (int nI = 0; nI < pew.size(); nI++)
-      {
-        pew.get(nI).show();
-        pew.get(nI).move();
-      }
-    
+    {
+      if(pew.get(nI).getX() > 490 || pew.get(nI).getX() < 0)
+        {
+          pew.remove(nI);
+          break;
+        }
+      else if (pew.get(nI).getY() > 490 || pew.get(nI).getY() < 0)
+        {
+          pew.remove(nI);
+          break;
+        }
+      pew.get(nI).show();
+      pew.get(nI).move();
+    }
 }
 public void keyPressed()
 {
@@ -80,10 +88,9 @@ public void keyPressed()
 			dragon.setX((int)(Math.random()*501));
 			dragon.setY((int)(Math.random()*501));
 		}
-    else if(keyCode == CONTROL)
-    {
-      pew.add(new Bullet(dragon));
-    }
 	}
 }
-
+public void mousePressed()
+{
+  pew.add(new Bullet(dragon));
+}
