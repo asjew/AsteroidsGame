@@ -78,7 +78,7 @@ public void keyPressed()
 		}
 		else if(keyCode == UP)
 		{
-			dragon.accelerate(5);
+			dragon.accelerate(3);
 		}
 		else if(keyCode == SHIFT)
 		{
@@ -93,4 +93,5 @@ public void keyPressed()
 public void mousePressed()
 {
   pew.add(new Bullet(dragon));
+  obstacle.add(new Asteroid());
 }
