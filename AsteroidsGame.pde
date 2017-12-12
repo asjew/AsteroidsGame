@@ -2,6 +2,7 @@ Spaceship dragon = new Spaceship();
 Stars[] twinkle;
 ArrayList <Asteroid> obstacle;
 ArrayList <Bullet> pew;
+ArrayList <Laser> zoom;
 
 public void setup() 
 {
@@ -17,6 +18,7 @@ public void setup()
   	obstacle.add(new Asteroid());
   }
   pew = new ArrayList <Bullet>();
+  zoom = new ArrayList <Laser> ();
 }
 public void draw() 
 {
@@ -47,6 +49,20 @@ public void draw()
           break;
         }
       }
+      for (int num = 0; num < zoom.size(); num++)
+      {
+        if(dist(zoom.get(num).getX(), zoom.get(num).getY(), obstacle.get(i).getX(), obstacle.get(i).getY()) <= 20)
+        {
+          zoom.remove(num);
+          obstacle.remove(i);
+          break;
+        }
+      }
+      int asteroidCount = obstacle.size();
+      String countDisplay = "Asteroids Left: " + asteroidCount;
+      fill(#F22234);
+      textSize(15);
+      text(countDisplay, 20, 30, 70);
   	}
     for (int nI = 0; nI < pew.size(); nI++)
     {
@@ -62,6 +78,21 @@ public void draw()
         }
       pew.get(nI).show();
       pew.get(nI).move();
+    }
+    for (int num = 0; num < zoom.size(); num++)
+    {
+      if(zoom.get(num).getX() > 490 || zoom.get(num).getX() < 0)
+        {
+          zoom.remove(num);
+          break;
+        }
+      else if (zoom.get(num).getY() > 490 || zoom.get(num).getY() < 0)
+        {
+          zoom.remove(num);
+          break;
+        }
+      zoom.get(num).show();
+      zoom.get(num).move();
     }
 }
 public void keyPressed()
@@ -88,10 +119,13 @@ public void keyPressed()
 			dragon.setX((int)(Math.random()*501));
 			dragon.setY((int)(Math.random()*501));
 		}
+    else if(keyCode == CONTROL)
+    {
+      zoom.add(new Laser(dragon));
+    }
 	}
 }
 public void mousePressed()
 {
   pew.add(new Bullet(dragon));
-  obstacle.add(new Asteroid());
 }
